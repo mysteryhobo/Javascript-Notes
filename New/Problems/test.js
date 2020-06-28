@@ -1,33 +1,70 @@
-const palindrome = require('./Palindromes.js');
+// const steps = require('./steps');
 
-test('palindrome function is defined', () => {
-  expect(typeof palindrome).toEqual('function');
+// beforeEach(() => {
+//   jest.spyOn(console, 'log')
+// });
+
+// afterEach(() => {
+//   console.log.mockRestore();
+// });
+
+// test('should log a single step', () => {
+//   steps(1);
+//   expect(console.log.mock.calls[0][0]).toEqual('#')
+// })
+
+// test('should log a two steps', () => {
+//   steps(2);
+//   expect(console.log.mock.calls[0][0]).toEqual('# ')
+//   expect(console.log.mock.calls[1][0]).toEqual('##')
+// })
+
+// test('should log a three steps', () => {
+//   steps(3);
+//   expect(console.log.mock.calls[0][0]).toEqual('#  ')
+//   expect(console.log.mock.calls[1][0]).toEqual('## ')
+//   expect(console.log.mock.calls[2][0]).toEqual('###')
+// })
+
+// test('should log a 0 steps', () => {
+//   steps(0);
+//   expect(console.log).not.toHaveBeenCalled();
+// })
+
+
+
+const pyramid = require('./pyramid.js');
+
+beforeEach(() => {
+  jest.spyOn(console, 'log');
 });
 
-test('"aba" is a palindrome', () => {
-  expect(palindrome('aba')).toBeTruthy();
+afterEach(() => {
+  console.log.mockRestore();
 });
 
-test('" aba" is not a palindrome', () => {
-  expect(palindrome(' aba')).toBeFalsy();
-});
+test('handles 1 level', () => {
+  pyramid(1);
+  expect(console.log.mock.calls[0][0]).toEqual('#');
+  expect(console.log).toHaveBeenCalledTimes(1);
+})
 
-test('"aba " is not a palindrome', () => {
-  expect(palindrome('aba ')).toBeFalsy();
-});
+test('handles 2 level', () => {
+  pyramid(2);
+  expect(console.log.mock.calls[0][0]).toEqual(' # ');
+  expect(console.log.mock.calls[1][0]).toEqual('###');
+  expect(console.log).toHaveBeenCalledTimes(2);
+})
 
-test('"greetings" is not a palindrome', () => {
-  expect(palindrome('greetings')).toBeFalsy();
-});
+test('handles 3 level', () => {
+  pyramid(3);
+  expect(console.log.mock.calls[0][0]).toEqual('  #  ');
+  expect(console.log.mock.calls[1][0]).toEqual(' ### ');
+  expect(console.log.mock.calls[2][0]).toEqual('#####');
+  expect(console.log).toHaveBeenCalledTimes(3);
+})
 
-test('"1000000001" a palindrome', () => {
-  expect(palindrome('1000000001')).toBeTruthy();
-});
-
-test('"Fish hsif" is not a palindrome', () => {
-  expect(palindrome('Fish hsif')).toBeFalsy();
-});
-
-test('"pennep" a palindrome', () => {
-  expect(palindrome('pennep')).toBeTruthy();
-});
+test('handles 0 level', () => {
+  pyramid(0);
+  expect(console.log).not.toHaveBeenCalled();
+})
