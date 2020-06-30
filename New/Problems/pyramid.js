@@ -23,7 +23,7 @@ function pyramid(n) {
     if (left >= 0) {
       prevLine = replaceCharAt(prevLine, left, '#');
       prevLine = replaceCharAt(prevLine, right, '#');
-      // console.log(`"${prevLine}"`);
+      console.log(`"${prevLine}"`);
       setTimeout(() => logLine(n, prevLine, left - 1, right + 1));
     }
   }
@@ -35,7 +35,6 @@ function pyramid(n) {
   const midPoint = n - 1
   const blankString = new Array(((n - 1) * 2) + 2).join(' ');
   logLine(n, blankString, midPoint, midPoint)
-  console.log('done')
 }
 
 
@@ -48,9 +47,8 @@ function pyramid2(n) {
       if (numOfSpaces <= col && col < numOfColumns - numOfSpaces) line += '#';
       else line += ' ';
     }
-    // console.log(line)
+    console.log(line)
   }
-  console.log('done')
 }
 
 var t0 = performance.now()

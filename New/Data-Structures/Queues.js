@@ -17,14 +17,14 @@ class Queue {
   }
 
   dequeue() {
-    if (this.isEmpty()) return null;
+    if (this.isEmpty()) return undefined;
     else {
       return this.items.shift();
     }
   }
 
   front() {
-    if (this.isEmpty()) return null;
+    if (this.isEmpty()) return undefined;
     else {
       return this.items[0]
     }
@@ -41,13 +41,15 @@ class Queue {
   }
 }
 
-const queue = new Queue();
-queue.enqueue(10); 
-queue.enqueue(20); 
-queue.enqueue(30);
-queue.dequeue();
-queue.enqueue(40); 
-queue.enqueue(50); 
-queue.enqueue(60); 
-queue.print();
-console.log(queue.front());
+module.exports = Queue;
+
+// const queue = new Queue();
+// queue.enqueue(10); 
+// queue.enqueue(20); 
+// queue.enqueue(30);
+// queue.dequeue();
+// queue.enqueue(40); 
+// queue.enqueue(50); 
+// queue.enqueue(60); 
+// queue.print();
+// console.log(queue.front());
