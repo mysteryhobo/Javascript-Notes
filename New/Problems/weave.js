@@ -27,7 +27,7 @@ const Queue = require('../Data-Structures/Queues.js');
 function weave(sourceOne, sourceTwo) {
   const resultQueue = new Queue();
 
-  while(sourceOne.front() !== undefined && sourceTwo.front() !== undefined) {
+  while(sourceOne.front() !== undefined || sourceTwo.front() !== undefined) {
     if (sourceOne.front() !== undefined) resultQueue.enqueue(sourceOne.dequeue());
     if (sourceTwo.front() !== undefined) resultQueue.enqueue(sourceTwo.dequeue());
   }
