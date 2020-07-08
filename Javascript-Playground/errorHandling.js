@@ -17,7 +17,7 @@ try {
   test()
   .then((res) => {
     console.log('TEST:', res) // not fired
-  })
+  }) 
 } catch (error) { //does not catch error
 console.log('CAUGHT ERROR: ', error) // not logged
 }

@@ -10,3 +10,15 @@ values given are the values not the actualy nodes (no access to parents)
 func(root, v1, v2);
 */
 
+
+
+function findLCA(node, v1, v2) {
+  if (!node) return null;
+  else if (node.value === v1 || node.value === v2) return node;
+  else {
+    const left = findLCA(node.left, v1, v2);
+    const right = findLCA(node.right, v1, v2);
+    if (left && right) return node;
+    return left || right;
+  }
+}
