@@ -20,4 +20,4 @@ function merge (left, right) {
   return [...mergedArray, ...left, ...right]
 }
 
-console.log(mergeSort([7, 2, 4, 9, 3, 8, 5, 1]))
+console.log(mergeSort([7, 2, 4, 9, 3, 8, 5, 1])) 

@@ -26,3 +26,59 @@ function validate(node, min = null, max = null) {
 }
 
 module.exports = validate;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const validateBST = (node, min = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_INFINITY) => {
+  if (!node.value > min || !node.value <= max) return false;
+  if (node.left && !validateBST(node.left, min, node.value)) return false;
+  if (node.right && !validateBST(node.right, node.value, max)) return false;
+  return true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

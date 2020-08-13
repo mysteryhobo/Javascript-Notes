@@ -20,7 +20,7 @@ function vowels(str) {
 
 // Solution 2: Regex
 function vowels(str) {
-  const matches = str.match(/[aeiou]/gi);
+  const matches = str.matches(/[aeiou]/gi);
   return matches ? matches.length : 0;
 }
 

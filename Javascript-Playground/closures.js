@@ -27,8 +27,24 @@ const createSecret = (secretMessage) => {
   }
 }
 
-const secret = createSecret('test')
+// const secret = createSecret('test')
 
-console.log(secret.secretMessage) // undefined
+// console.log(secret.secretMessage) // undefined
 
-console.log(secret.getSecret()) // returns 'test'
+// console.log(secret.getSecret()) // returns 'test'
+test = 'cat'
+// this.test = 'test';
+console.log('this:', this)
+const outerTest = () => {console.log('this:', this);}
+
+const obj = {
+  test: () => {console.log('this;', this)},
+  test2: function () { return () => {console.log('this:', this)} }
+};
+
+outerTest(); // this: {test: 'test'}
+obj.test(); // this: {test: 'test'}
+//obj.test2(); // this: { test: [Function: test], test2: [Function: test2] } (the object)
+obj.test2()(); // this: { test: [Function: test], test2: [Function: test2] } (the object)
+const testFunc = obj.test2
+testFunc()(); // this: GLOBAL OBJECT

@@ -11,6 +11,8 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
+
+// Solution: 2 incrementors
 function fromLast(list, n) {
   let endpoint = list.getFirst();
   let fromEndPoint = list.getFrist();
