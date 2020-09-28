@@ -2,7 +2,7 @@
 
 
 
-
+// DFS for x children
 const dfs = (node, value) => {
   console.log('NODE: ', node)
   if (node.value === value) return node;
@@ -35,4 +35,57 @@ const node1 = {value: 1, children: [
   ]}
 ]}
 
-console.log(dfs(node1, 15))
+// console.log(dfs(node1, 15))
+
+
+
+
+// DFS for 2 Children max
+const value = 10
+const isAMatch = (node) => {return node.value === value}
+
+const dfs2 = (node, isAMatch) => {
+  if (!node) return null
+  if (isAMatch(node)) return node;
+
+  return dfs2(node.left, isAMatch) || dfs2(node.right, isAMatch);
+}
+
+const node2 = {
+  value: 1,
+  left: {
+    value: 2,
+    left: {
+      value: 3,
+      right: {
+        value: 4
+      }
+    },
+    right: {
+      value: 5,
+      left: {
+        value: 6
+      }
+    }
+  },
+  right: {
+    value: 7,
+    left: {
+      value: 8,
+      left: {
+        value: 9
+      },
+      right: {
+        value: 10,
+        left: {
+          value: 12
+        }
+      }
+    },
+    right: {
+      value: 11
+    }
+  }
+}
+
+console.log(dfs2(node2, isAMatch))
